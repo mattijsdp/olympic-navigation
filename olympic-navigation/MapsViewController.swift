@@ -31,12 +31,12 @@ class MapsSearchViewController: UIViewController {
             annotation.textField = searchResult.name
             annotation.textOffset = [0, -2]
             annotation.textColor = StyleColor(.red)
-            annotation.image = .default
+//            annotation.image = .default
             return annotation
         }
         
-        annotationManager?.syncAnnotations(annotations)
-        if case let .point(point) = annotations.first?.feature.geometry {
+        annotationManager?.syncSourceAndLayerIfNeeded()
+        if case let .point(point) = annotations.first?.geometry {
             let options = CameraOptions(center: point.coordinates)
             mapView?.mapboxMap.setCamera(to: options)
         }
@@ -44,7 +44,7 @@ class MapsSearchViewController: UIViewController {
 }
 
 extension MapsSearchViewController: SearchControllerDelegate {
-    func categorySearchResultsReceived(results: [SearchResult]) {
+    func categorySearchResultsReceived(category: MapboxSearchUI.SearchCategory, results: [MapboxSearch.SearchResult]) {
         showResults(results)
     }
     
