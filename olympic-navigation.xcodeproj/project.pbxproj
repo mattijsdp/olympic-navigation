@@ -1,0 +1,606 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C8E31E142AFC184A008BE8D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E132AFC184A008BE8D3 /* AppDelegate.swift */; };
+		C8E31E162AFC184A008BE8D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E152AFC184A008BE8D3 /* SceneDelegate.swift */; };
+		C8E31E182AFC184A008BE8D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E172AFC184A008BE8D3 /* ViewController.swift */; };
+		C8E31E1B2AFC184A008BE8D3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8E31E192AFC184A008BE8D3 /* Main.storyboard */; };
+		C8E31E1D2AFC184B008BE8D3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8E31E1C2AFC184B008BE8D3 /* Assets.xcassets */; };
+		C8E31E202AFC184B008BE8D3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8E31E1E2AFC184B008BE8D3 /* LaunchScreen.storyboard */; };
+		C8E31E2B2AFC184C008BE8D3 /* olympic_navigationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E2A2AFC184C008BE8D3 /* olympic_navigationTests.swift */; };
+		C8E31E352AFC184C008BE8D3 /* olympic_navigationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E342AFC184C008BE8D3 /* olympic_navigationUITests.swift */; };
+		C8E31E372AFC184C008BE8D3 /* olympic_navigationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E362AFC184C008BE8D3 /* olympic_navigationUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C8E31E272AFC184C008BE8D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8E31E082AFC184A008BE8D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8E31E0F2AFC184A008BE8D3;
+			remoteInfo = "olympic-navigation";
+		};
+		C8E31E312AFC184C008BE8D3 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C8E31E082AFC184A008BE8D3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C8E31E0F2AFC184A008BE8D3;
+			remoteInfo = "olympic-navigation";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C8E31E102AFC184A008BE8D3 /* olympic-navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "olympic-navigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E31E132AFC184A008BE8D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		C8E31E152AFC184A008BE8D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		C8E31E172AFC184A008BE8D3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C8E31E1A2AFC184A008BE8D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C8E31E1C2AFC184B008BE8D3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C8E31E1F2AFC184B008BE8D3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C8E31E212AFC184B008BE8D3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8E31E262AFC184C008BE8D3 /* olympic-navigationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "olympic-navigationTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E31E2A2AFC184C008BE8D3 /* olympic_navigationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = olympic_navigationTests.swift; sourceTree = "<group>"; };
+		C8E31E302AFC184C008BE8D3 /* olympic-navigationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "olympic-navigationUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C8E31E342AFC184C008BE8D3 /* olympic_navigationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = olympic_navigationUITests.swift; sourceTree = "<group>"; };
+		C8E31E362AFC184C008BE8D3 /* olympic_navigationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = olympic_navigationUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C8E31E0D2AFC184A008BE8D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E31E232AFC184C008BE8D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E31E2D2AFC184C008BE8D3 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C8E31E072AFC184A008BE8D3 = {
+			isa = PBXGroup;
+			children = (
+				C8E31E122AFC184A008BE8D3 /* olympic-navigation */,
+				C8E31E292AFC184C008BE8D3 /* olympic-navigationTests */,
+				C8E31E332AFC184C008BE8D3 /* olympic-navigationUITests */,
+				C8E31E112AFC184A008BE8D3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C8E31E112AFC184A008BE8D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C8E31E102AFC184A008BE8D3 /* olympic-navigation.app */,
+				C8E31E262AFC184C008BE8D3 /* olympic-navigationTests.xctest */,
+				C8E31E302AFC184C008BE8D3 /* olympic-navigationUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C8E31E122AFC184A008BE8D3 /* olympic-navigation */ = {
+			isa = PBXGroup;
+			children = (
+				C8E31E132AFC184A008BE8D3 /* AppDelegate.swift */,
+				C8E31E152AFC184A008BE8D3 /* SceneDelegate.swift */,
+				C8E31E172AFC184A008BE8D3 /* ViewController.swift */,
+				C8E31E192AFC184A008BE8D3 /* Main.storyboard */,
+				C8E31E1C2AFC184B008BE8D3 /* Assets.xcassets */,
+				C8E31E1E2AFC184B008BE8D3 /* LaunchScreen.storyboard */,
+				C8E31E212AFC184B008BE8D3 /* Info.plist */,
+			);
+			path = "olympic-navigation";
+			sourceTree = "<group>";
+		};
+		C8E31E292AFC184C008BE8D3 /* olympic-navigationTests */ = {
+			isa = PBXGroup;
+			children = (
+				C8E31E2A2AFC184C008BE8D3 /* olympic_navigationTests.swift */,
+			);
+			path = "olympic-navigationTests";
+			sourceTree = "<group>";
+		};
+		C8E31E332AFC184C008BE8D3 /* olympic-navigationUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C8E31E342AFC184C008BE8D3 /* olympic_navigationUITests.swift */,
+				C8E31E362AFC184C008BE8D3 /* olympic_navigationUITestsLaunchTests.swift */,
+			);
+			path = "olympic-navigationUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C8E31E0F2AFC184A008BE8D3 /* olympic-navigation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E31E3A2AFC184C008BE8D3 /* Build configuration list for PBXNativeTarget "olympic-navigation" */;
+			buildPhases = (
+				C8E31E0C2AFC184A008BE8D3 /* Sources */,
+				C8E31E0D2AFC184A008BE8D3 /* Frameworks */,
+				C8E31E0E2AFC184A008BE8D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "olympic-navigation";
+			productName = "olympic-navigation";
+			productReference = C8E31E102AFC184A008BE8D3 /* olympic-navigation.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C8E31E252AFC184C008BE8D3 /* olympic-navigationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E31E3D2AFC184C008BE8D3 /* Build configuration list for PBXNativeTarget "olympic-navigationTests" */;
+			buildPhases = (
+				C8E31E222AFC184C008BE8D3 /* Sources */,
+				C8E31E232AFC184C008BE8D3 /* Frameworks */,
+				C8E31E242AFC184C008BE8D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8E31E282AFC184C008BE8D3 /* PBXTargetDependency */,
+			);
+			name = "olympic-navigationTests";
+			productName = "olympic-navigationTests";
+			productReference = C8E31E262AFC184C008BE8D3 /* olympic-navigationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C8E31E2F2AFC184C008BE8D3 /* olympic-navigationUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C8E31E402AFC184C008BE8D3 /* Build configuration list for PBXNativeTarget "olympic-navigationUITests" */;
+			buildPhases = (
+				C8E31E2C2AFC184C008BE8D3 /* Sources */,
+				C8E31E2D2AFC184C008BE8D3 /* Frameworks */,
+				C8E31E2E2AFC184C008BE8D3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C8E31E322AFC184C008BE8D3 /* PBXTargetDependency */,
+			);
+			name = "olympic-navigationUITests";
+			productName = "olympic-navigationUITests";
+			productReference = C8E31E302AFC184C008BE8D3 /* olympic-navigationUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C8E31E082AFC184A008BE8D3 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					C8E31E0F2AFC184A008BE8D3 = {
+						CreatedOnToolsVersion = 15.0.1;
+					};
+					C8E31E252AFC184C008BE8D3 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = C8E31E0F2AFC184A008BE8D3;
+					};
+					C8E31E2F2AFC184C008BE8D3 = {
+						CreatedOnToolsVersion = 15.0.1;
+						TestTargetID = C8E31E0F2AFC184A008BE8D3;
+					};
+				};
+			};
+			buildConfigurationList = C8E31E0B2AFC184A008BE8D3 /* Build configuration list for PBXProject "olympic-navigation" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C8E31E072AFC184A008BE8D3;
+			productRefGroup = C8E31E112AFC184A008BE8D3 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C8E31E0F2AFC184A008BE8D3 /* olympic-navigation */,
+				C8E31E252AFC184C008BE8D3 /* olympic-navigationTests */,
+				C8E31E2F2AFC184C008BE8D3 /* olympic-navigationUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C8E31E0E2AFC184A008BE8D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E31E202AFC184B008BE8D3 /* LaunchScreen.storyboard in Resources */,
+				C8E31E1D2AFC184B008BE8D3 /* Assets.xcassets in Resources */,
+				C8E31E1B2AFC184A008BE8D3 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E31E242AFC184C008BE8D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E31E2E2AFC184C008BE8D3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C8E31E0C2AFC184A008BE8D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E31E182AFC184A008BE8D3 /* ViewController.swift in Sources */,
+				C8E31E142AFC184A008BE8D3 /* AppDelegate.swift in Sources */,
+				C8E31E162AFC184A008BE8D3 /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E31E222AFC184C008BE8D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E31E2B2AFC184C008BE8D3 /* olympic_navigationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C8E31E2C2AFC184C008BE8D3 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C8E31E372AFC184C008BE8D3 /* olympic_navigationUITestsLaunchTests.swift in Sources */,
+				C8E31E352AFC184C008BE8D3 /* olympic_navigationUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C8E31E282AFC184C008BE8D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8E31E0F2AFC184A008BE8D3 /* olympic-navigation */;
+			targetProxy = C8E31E272AFC184C008BE8D3 /* PBXContainerItemProxy */;
+		};
+		C8E31E322AFC184C008BE8D3 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C8E31E0F2AFC184A008BE8D3 /* olympic-navigation */;
+			targetProxy = C8E31E312AFC184C008BE8D3 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C8E31E192AFC184A008BE8D3 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8E31E1A2AFC184A008BE8D3 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C8E31E1E2AFC184B008BE8D3 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C8E31E1F2AFC184B008BE8D3 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C8E31E382AFC184C008BE8D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		C8E31E392AFC184C008BE8D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C8E31E3B2AFC184C008BE8D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "olympic-navigation/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "moag.olympic-navigation";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		C8E31E3C2AFC184C008BE8D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "olympic-navigation/Info.plist";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "moag.olympic-navigation";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		C8E31E3E2AFC184C008BE8D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "moag.olympic-navigationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/olympic-navigation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/olympic-navigation";
+			};
+			name = Debug;
+		};
+		C8E31E3F2AFC184C008BE8D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "moag.olympic-navigationTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/olympic-navigation.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/olympic-navigation";
+			};
+			name = Release;
+		};
+		C8E31E412AFC184C008BE8D3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "moag.olympic-navigationUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "olympic-navigation";
+			};
+			name = Debug;
+		};
+		C8E31E422AFC184C008BE8D3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "moag.olympic-navigationUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "olympic-navigation";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C8E31E0B2AFC184A008BE8D3 /* Build configuration list for PBXProject "olympic-navigation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E31E382AFC184C008BE8D3 /* Debug */,
+				C8E31E392AFC184C008BE8D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8E31E3A2AFC184C008BE8D3 /* Build configuration list for PBXNativeTarget "olympic-navigation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E31E3B2AFC184C008BE8D3 /* Debug */,
+				C8E31E3C2AFC184C008BE8D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8E31E3D2AFC184C008BE8D3 /* Build configuration list for PBXNativeTarget "olympic-navigationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E31E3E2AFC184C008BE8D3 /* Debug */,
+				C8E31E3F2AFC184C008BE8D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C8E31E402AFC184C008BE8D3 /* Build configuration list for PBXNativeTarget "olympic-navigationUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C8E31E412AFC184C008BE8D3 /* Debug */,
+				C8E31E422AFC184C008BE8D3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C8E31E082AFC184A008BE8D3 /* Project object */;
+}
