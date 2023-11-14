@@ -6,12 +6,17 @@ class SimpleUISearchViewController: MapsViewController {
     
     lazy var searchController: MapboxSearchController = {
         let locationProvider = PointLocationProvider(coordinate: .sanFrancisco)
-        var configuration = Configuration(locationProvider: locationProvider)
+        // can define category slot (horizontal) and category lists (vertical)
+        // let categoryDataProvider = ConstantCategoryDataProvider()
+        var configuration = Configuration(locationProvider: locationProvider) // , hideCategorySlots: true)
         
         return MapboxSearchController(configuration: configuration)
     }()
     
-    lazy var panelController = MapboxPanelController(rootViewController: searchController)
+    var mapbox_pc_configuration = MapboxPanelController.Configuration(state: .collapsed)
+    lazy var panelController = MapboxPanelController(rootViewController: searchController, configuration: mapbox_pc_configuration)
+    
+    var startButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +35,23 @@ extension SimpleUISearchViewController: SearchControllerDelegate {
     }
     
     func searchResultSelected(_ searchResult: SearchResult) {
+        print("Entering searchResultSelected --------------")
+        print(panelController.state)
+        panelController.setState(.hidden, animated: true)
+        print(panelController.state)
         showAnnotation(searchResult)
+        print(panelController.state)
+        panelController.setState(.hidden, animated: true)
+        print(panelController.state)
+        
+        startButton = UIButton()
+        startButton.setTitle("Start Navigation", for: .normal)
+        startButton.translatesAutoresizingMaskIntoConstraints = false
+        startButton.backgroundColor = .blue
+//        startButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 20, bottom: 10, right: 20)
+//        startButton.addTarget(self, action: #selector(tappedButton(sender:)), for: .touchUpInside)
+        startButton.isHidden = false
+        view.addSubview(startButton)
     }
     
     func userFavoriteSelected(_ userFavorite: FavoriteRecord) {

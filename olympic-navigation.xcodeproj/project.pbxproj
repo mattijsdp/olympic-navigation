@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C81E5F0A2AFD99A5002E517D /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E5F092AFD99A5002E517D /* MapsViewController.swift */; };
-		C81E5F0E2AFD9B1E002E517D /* Examples.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E5F0D2AFD9B1E002E517D /* Examples.swift */; };
+		C81E5F102AFFB155002E517D /* AdvancedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E5F0F2AFFB155002E517D /* AdvancedViewController.swift */; };
 		C8E31E142AFC184A008BE8D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E132AFC184A008BE8D3 /* AppDelegate.swift */; };
 		C8E31E162AFC184A008BE8D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E152AFC184A008BE8D3 /* SceneDelegate.swift */; };
 		C8E31E182AFC184A008BE8D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E172AFC184A008BE8D3 /* ViewController.swift */; };
@@ -22,9 +22,7 @@
 		C8E31E4B2AFC36CF008BE8D3 /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = C8E31E4A2AFC36CF008BE8D3 /* MapboxSearchUI */; };
 		C8E31E542AFC4CE5008BE8D3 /* Atlantis in Frameworks */ = {isa = PBXBuildFile; productRef = C8E31E532AFC4CE5008BE8D3 /* Atlantis */; };
 		C8E31E662AFC4DC7008BE8D3 /* SearchExamples.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = C8E31E582AFC4DC6008BE8D3 /* SearchExamples.xcworkspace */; };
-		C8E31E6D2AFC4DC7008BE8D3 /* MapsSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E5F2AFC4DC6008BE8D3 /* MapsSearchView.swift */; };
 		C8E31E6F2AFC4DC7008BE8D3 /* SimpleUISearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E612AFC4DC6008BE8D3 /* SimpleUISearchViewController.swift */; };
-		C8E31E742AFC51EF008BE8D3 /* MapsSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E732AFC51EF008BE8D3 /* MapsSearchViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,7 +44,7 @@
 
 /* Begin PBXFileReference section */
 		C81E5F092AFD99A5002E517D /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
-		C81E5F0D2AFD9B1E002E517D /* Examples.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Examples.swift; sourceTree = "<group>"; };
+		C81E5F0F2AFFB155002E517D /* AdvancedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedViewController.swift; sourceTree = "<group>"; };
 		C8E31E102AFC184A008BE8D3 /* olympic-navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "olympic-navigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8E31E132AFC184A008BE8D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8E31E152AFC184A008BE8D3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,9 +57,7 @@
 		C8E31E342AFC184C008BE8D3 /* olympic_navigationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = olympic_navigationUITests.swift; sourceTree = "<group>"; };
 		C8E31E362AFC184C008BE8D3 /* olympic_navigationUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = olympic_navigationUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		C8E31E582AFC4DC6008BE8D3 /* SearchExamples.xcworkspace */ = {isa = PBXFileReference; lastKnownFileType = wrapper.workspace; path = SearchExamples.xcworkspace; sourceTree = "<group>"; };
-		C8E31E5F2AFC4DC6008BE8D3 /* MapsSearchView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapsSearchView.swift; sourceTree = "<group>"; };
 		C8E31E612AFC4DC6008BE8D3 /* SimpleUISearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleUISearchViewController.swift; sourceTree = "<group>"; };
-		C8E31E732AFC51EF008BE8D3 /* MapsSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsSearchViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,14 +115,12 @@
 				C8E31E132AFC184A008BE8D3 /* AppDelegate.swift */,
 				C8E31E152AFC184A008BE8D3 /* SceneDelegate.swift */,
 				C8E31E172AFC184A008BE8D3 /* ViewController.swift */,
-				C8E31E5F2AFC4DC6008BE8D3 /* MapsSearchView.swift */,
 				C8E31E582AFC4DC6008BE8D3 /* SearchExamples.xcworkspace */,
 				C8E31E612AFC4DC6008BE8D3 /* SimpleUISearchViewController.swift */,
 				C8E31E1C2AFC184B008BE8D3 /* Assets.xcassets */,
 				C8E31E1E2AFC184B008BE8D3 /* LaunchScreen.storyboard */,
-				C8E31E732AFC51EF008BE8D3 /* MapsSearchViewController.swift */,
 				C81E5F092AFD99A5002E517D /* MapsViewController.swift */,
-				C81E5F0D2AFD9B1E002E517D /* Examples.swift */,
+				C81E5F0F2AFFB155002E517D /* AdvancedViewController.swift */,
 			);
 			path = "olympic-navigation";
 			sourceTree = "<group>";
@@ -291,13 +285,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				C81E5F0A2AFD99A5002E517D /* MapsViewController.swift in Sources */,
+				C81E5F102AFFB155002E517D /* AdvancedViewController.swift in Sources */,
 				C8E31E6F2AFC4DC7008BE8D3 /* SimpleUISearchViewController.swift in Sources */,
 				C8E31E182AFC184A008BE8D3 /* ViewController.swift in Sources */,
 				C8E31E142AFC184A008BE8D3 /* AppDelegate.swift in Sources */,
-				C8E31E742AFC51EF008BE8D3 /* MapsSearchViewController.swift in Sources */,
 				C8E31E162AFC184A008BE8D3 /* SceneDelegate.swift in Sources */,
-				C81E5F0E2AFD9B1E002E517D /* Examples.swift in Sources */,
-				C8E31E6D2AFC4DC7008BE8D3 /* MapsSearchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

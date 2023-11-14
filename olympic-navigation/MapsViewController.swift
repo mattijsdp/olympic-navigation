@@ -1,7 +1,7 @@
 import MapboxMaps
 import MapboxSearch
 
-class MapsViewController: UIViewController, ExampleController {
+class MapsViewController: UIViewController {
     let mapView = MapView(frame: .zero)
     lazy var annotationsManager = mapView.annotations.makePointAnnotationManager()
     
@@ -18,7 +18,13 @@ class MapsViewController: UIViewController, ExampleController {
     }
     
     func showAnnotations(results: [SearchResult], cameraShouldFollow: Bool = true) {
-        annotationsManager.annotations = results.map(PointAnnotation.init)
+        annotationsManager.annotations = results.map{ searchResult -> PointAnnotation in
+            var annotation = PointAnnotation(coordinate: searchResult.coordinate)
+            annotation.textOffset = [0, -2]
+            annotation.textColor = StyleColor(.red)
+            annotation.image = .init(image: UIImage(named: "red_pin")!, name: "red_pin")
+            return annotation
+        }
         
         if cameraShouldFollow {
             cameraToAnnotations(annotationsManager.annotations)

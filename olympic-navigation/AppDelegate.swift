@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        let navigationController = UINavigationController(rootViewController: simpleUISearchViewController)
         
         window?.rootViewController = SimpleUISearchViewController()
+//        window?.rootViewController = AdvancedViewController()
         window?.makeKeyAndVisible()
         
         Atlantis.start()
