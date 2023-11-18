@@ -3,12 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 56;
+	objectVersion = 60;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		C81E5F0A2AFD99A5002E517D /* MapsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E5F092AFD99A5002E517D /* MapsViewController.swift */; };
+		C80FD0E22B091C6E002F369F /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80FD0E12B091C6E002F369F /* NavigationBar.swift */; };
+		C80FD0E42B092ED3002F369F /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = C80FD0E32B092ED3002F369F /* Fonts.swift */; };
 		C81E5F102AFFB155002E517D /* AdvancedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C81E5F0F2AFFB155002E517D /* AdvancedViewController.swift */; };
+		C8C10FF82B07F00E00D9574A /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = C8C10FF72B07F00E00D9574A /* MapboxSearch */; };
+		C8C10FFA2B07F00E00D9574A /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = C8C10FF92B07F00E00D9574A /* MapboxSearchUI */; };
 		C8E31E142AFC184A008BE8D3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E132AFC184A008BE8D3 /* AppDelegate.swift */; };
 		C8E31E162AFC184A008BE8D3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E152AFC184A008BE8D3 /* SceneDelegate.swift */; };
 		C8E31E182AFC184A008BE8D3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E172AFC184A008BE8D3 /* ViewController.swift */; };
@@ -18,8 +21,6 @@
 		C8E31E352AFC184C008BE8D3 /* olympic_navigationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E342AFC184C008BE8D3 /* olympic_navigationUITests.swift */; };
 		C8E31E372AFC184C008BE8D3 /* olympic_navigationUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E362AFC184C008BE8D3 /* olympic_navigationUITestsLaunchTests.swift */; };
 		C8E31E452AFC19B0008BE8D3 /* MapboxNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = C8E31E442AFC19B0008BE8D3 /* MapboxNavigation */; };
-		C8E31E492AFC36CF008BE8D3 /* MapboxSearch in Frameworks */ = {isa = PBXBuildFile; productRef = C8E31E482AFC36CF008BE8D3 /* MapboxSearch */; };
-		C8E31E4B2AFC36CF008BE8D3 /* MapboxSearchUI in Frameworks */ = {isa = PBXBuildFile; productRef = C8E31E4A2AFC36CF008BE8D3 /* MapboxSearchUI */; };
 		C8E31E542AFC4CE5008BE8D3 /* Atlantis in Frameworks */ = {isa = PBXBuildFile; productRef = C8E31E532AFC4CE5008BE8D3 /* Atlantis */; };
 		C8E31E662AFC4DC7008BE8D3 /* SearchExamples.xcworkspace in Resources */ = {isa = PBXBuildFile; fileRef = C8E31E582AFC4DC6008BE8D3 /* SearchExamples.xcworkspace */; };
 		C8E31E6F2AFC4DC7008BE8D3 /* SimpleUISearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8E31E612AFC4DC6008BE8D3 /* SimpleUISearchViewController.swift */; };
@@ -43,7 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		C81E5F092AFD99A5002E517D /* MapsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapsViewController.swift; sourceTree = "<group>"; };
+		C80FD0E12B091C6E002F369F /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		C80FD0E32B092ED3002F369F /* Fonts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		C81E5F0F2AFFB155002E517D /* AdvancedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdvancedViewController.swift; sourceTree = "<group>"; };
 		C8E31E102AFC184A008BE8D3 /* olympic-navigation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "olympic-navigation.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8E31E132AFC184A008BE8D3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -65,10 +67,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8C10FF82B07F00E00D9574A /* MapboxSearch in Frameworks */,
+				C8C10FFA2B07F00E00D9574A /* MapboxSearchUI in Frameworks */,
 				C8E31E542AFC4CE5008BE8D3 /* Atlantis in Frameworks */,
 				C8E31E452AFC19B0008BE8D3 /* MapboxNavigation in Frameworks */,
-				C8E31E4B2AFC36CF008BE8D3 /* MapboxSearchUI in Frameworks */,
-				C8E31E492AFC36CF008BE8D3 /* MapboxSearch in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -118,9 +120,10 @@
 				C8E31E582AFC4DC6008BE8D3 /* SearchExamples.xcworkspace */,
 				C8E31E612AFC4DC6008BE8D3 /* SimpleUISearchViewController.swift */,
 				C8E31E1C2AFC184B008BE8D3 /* Assets.xcassets */,
+				C80FD0E32B092ED3002F369F /* Fonts.swift */,
 				C8E31E1E2AFC184B008BE8D3 /* LaunchScreen.storyboard */,
-				C81E5F092AFD99A5002E517D /* MapsViewController.swift */,
 				C81E5F0F2AFFB155002E517D /* AdvancedViewController.swift */,
+				C80FD0E12B091C6E002F369F /* NavigationBar.swift */,
 			);
 			path = "olympic-navigation";
 			sourceTree = "<group>";
@@ -160,9 +163,9 @@
 			name = "olympic-navigation";
 			packageProductDependencies = (
 				C8E31E442AFC19B0008BE8D3 /* MapboxNavigation */,
-				C8E31E482AFC36CF008BE8D3 /* MapboxSearch */,
-				C8E31E4A2AFC36CF008BE8D3 /* MapboxSearchUI */,
 				C8E31E532AFC4CE5008BE8D3 /* Atlantis */,
+				C8C10FF72B07F00E00D9574A /* MapboxSearch */,
+				C8C10FF92B07F00E00D9574A /* MapboxSearchUI */,
 			);
 			productName = "olympic-navigation";
 			productReference = C8E31E102AFC184A008BE8D3 /* olympic-navigation.app */;
@@ -238,8 +241,8 @@
 			mainGroup = C8E31E072AFC184A008BE8D3;
 			packageReferences = (
 				C8E31E432AFC19B0008BE8D3 /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */,
-				C8E31E472AFC36CF008BE8D3 /* XCRemoteSwiftPackageReference "mapbox-search-ios" */,
 				C8E31E522AFC4CE5008BE8D3 /* XCRemoteSwiftPackageReference "atlantis" */,
+				C8C10FF62B07F00E00D9574A /* XCLocalSwiftPackageReference "../mapbox-search-ios" */,
 			);
 			productRefGroup = C8E31E112AFC184A008BE8D3 /* Products */;
 			projectDirPath = "";
@@ -284,12 +287,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C81E5F0A2AFD99A5002E517D /* MapsViewController.swift in Sources */,
+				C80FD0E42B092ED3002F369F /* Fonts.swift in Sources */,
 				C81E5F102AFFB155002E517D /* AdvancedViewController.swift in Sources */,
 				C8E31E6F2AFC4DC7008BE8D3 /* SimpleUISearchViewController.swift in Sources */,
 				C8E31E182AFC184A008BE8D3 /* ViewController.swift in Sources */,
 				C8E31E142AFC184A008BE8D3 /* AppDelegate.swift in Sources */,
 				C8E31E162AFC184A008BE8D3 /* SceneDelegate.swift in Sources */,
+				C80FD0E22B091C6E002F369F /* NavigationBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -629,6 +633,13 @@
 		};
 /* End XCConfigurationList section */
 
+/* Begin XCLocalSwiftPackageReference section */
+		C8C10FF62B07F00E00D9574A /* XCLocalSwiftPackageReference "../mapbox-search-ios" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../mapbox-search-ios";
+		};
+/* End XCLocalSwiftPackageReference section */
+
 /* Begin XCRemoteSwiftPackageReference section */
 		C8E31E432AFC19B0008BE8D3 /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
@@ -636,14 +647,6 @@
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.17.0;
-			};
-		};
-		C8E31E472AFC36CF008BE8D3 /* XCRemoteSwiftPackageReference "mapbox-search-ios" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/mapbox/mapbox-search-ios.git";
-			requirement = {
-				branch = "v1.0.0-rc.8";
-				kind = branch;
 			};
 		};
 		C8E31E522AFC4CE5008BE8D3 /* XCRemoteSwiftPackageReference "atlantis" */ = {
@@ -657,20 +660,18 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		C8C10FF72B07F00E00D9574A /* MapboxSearch */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MapboxSearch;
+		};
+		C8C10FF92B07F00E00D9574A /* MapboxSearchUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MapboxSearchUI;
+		};
 		C8E31E442AFC19B0008BE8D3 /* MapboxNavigation */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C8E31E432AFC19B0008BE8D3 /* XCRemoteSwiftPackageReference "mapbox-navigation-ios" */;
 			productName = MapboxNavigation;
-		};
-		C8E31E482AFC36CF008BE8D3 /* MapboxSearch */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C8E31E472AFC36CF008BE8D3 /* XCRemoteSwiftPackageReference "mapbox-search-ios" */;
-			productName = MapboxSearch;
-		};
-		C8E31E4A2AFC36CF008BE8D3 /* MapboxSearchUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C8E31E472AFC36CF008BE8D3 /* XCRemoteSwiftPackageReference "mapbox-search-ios" */;
-			productName = MapboxSearchUI;
 		};
 		C8E31E532AFC4CE5008BE8D3 /* Atlantis */ = {
 			isa = XCSwiftPackageProductDependency;

@@ -21,6 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window?.rootViewController = SimpleUISearchViewController()
 //        window?.rootViewController = AdvancedViewController()
+//        window?.rootViewController = ExampleNavigationViewController()
         window?.makeKeyAndVisible()
         
         Atlantis.start()
