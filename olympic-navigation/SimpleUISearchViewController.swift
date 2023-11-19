@@ -9,7 +9,7 @@ import MapboxSearchUI
 var simulationIsEnabled = true
 
 class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate, NavigationViewControllerDelegate {
-    
+
     var startLocation: SearchResult?
     var endLocation: SearchResult?
     var setStartLocation: Bool = false
@@ -70,10 +70,8 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
     }
     
     var startButton: UIButton!
-    
-    lazy var annotationsManager = navigationMapView.mapView.annotations.makePointAnnotationManager()
-    
-    lazy var searchController: MapboxSearchController = {
+        
+    var searchController: MapboxSearchController = {
 //        let pointLocationProvider = PointLocationProvider(coordinate: .defaultLocation)
         let defaultLocationProvider = DefaultLocationProvider(locationManager: .init())
         // can define category slot (horizontal) and category lists (vertical)
@@ -82,9 +80,7 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
         
         return MapboxSearchController(configuration: configuration)
     }()
-    
-    lazy var panelController = MapboxPanelController(rootViewController: searchController)
-    
+        
     // MARK: - UIViewController lifecycle methods
     
     override func viewDidLoad() {
@@ -94,7 +90,6 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
         navigationMapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         navigationMapView.delegate = self
         navigationMapView.userLocationStyle = .puck2D()
-        navigationMapView.moveUserLocation(to: .defaultLocation)
         
         let navigationViewportDataSource = NavigationViewportDataSource(navigationMapView.mapView, viewportDataSourceType: .raw)
         navigationViewportDataSource.options.followingCameraOptions.zoomUpdatesAllowed = false
@@ -104,8 +99,8 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
         // TODO: handle longpress
 //        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
 //        navigationMapView.addGestureRecognizer(gesture)
-        
-        view.addSubview(navigationMapView)
+                
+        var panelController = MapboxPanelController(rootViewController: searchController)
         
         startButton = UIButton()
         startButton.setTitle("Start Navigation", for: .normal)
@@ -139,7 +134,7 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
         
         searchController.delegate = self
         addChild(panelController)
-        
+                
     }
     
     // Override layout lifecycle callback to be able to style the start button.
@@ -176,7 +171,9 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
         endNavigationBar.isHidden = true
         startButton.isHidden = true
         
-        panelController.setState(.opened)
+        setStartLocation = true
+        
+        searchController.panelController?.setState(.opened)
     }
     
     @objc func tappedEndNavigationBar(sender: UIButton) {
@@ -184,7 +181,9 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
         endNavigationBar.isHidden = true
         startButton.isHidden = true
         
-        panelController.setState(.opened)
+        setStartLocation = false
+        
+        searchController.panelController?.setState(.opened)
     }
     
     @objc func tappedButton(sender: UIButton) {
@@ -305,7 +304,7 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
     }
 
     func showAnnotations(results: [SearchResult], cameraShouldFollow: Bool = true) {
-        annotationsManager.annotations = results.map{ searchResult -> PointAnnotation in
+        navigationMapView.pointAnnotationManager?.annotations = results.map{ searchResult -> PointAnnotation in
             var annotation = PointAnnotation(coordinate: searchResult.coordinate)
             annotation.textOffset = [0, -2]
             annotation.textColor = StyleColor(.red)
@@ -314,7 +313,7 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
         }
         
         if cameraShouldFollow {
-            cameraToAnnotations(annotationsManager.annotations)
+            cameraToAnnotations(navigationMapView.pointAnnotationManager!.annotations)
         }
     }
     
@@ -335,9 +334,9 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
     }
     
     func showAnnotation(_ favorite: FavoriteRecord) {
-        annotationsManager.annotations = [PointAnnotation(favoriteRecord: favorite)]
+        navigationMapView.pointAnnotationManager?.annotations = [PointAnnotation(favoriteRecord: favorite)]
         
-        cameraToAnnotations(annotationsManager.annotations)
+        cameraToAnnotations(navigationMapView.pointAnnotationManager!.annotations)
     }
     
     func showError(_ error: Error) {
@@ -357,17 +356,20 @@ extension SimpleUISearchViewController: SearchControllerDelegate {
         print("Entering searchResultSelected --------------")
         if setStartLocation {
             startLocation = searchResult
+            startNavigationBar.textField.text = startLocation?.name
             setStartLocation = false
         } else {
             endLocation = searchResult
+            endNavigationBar.textField.text = endLocation?.name
+            if startNavigationBar.textField.text == "Where from?" {
+                startNavigationBar.textField.text = "Current location"
+            }
             setStartLocation = true
+            
+            showAnnotation(searchResult)
         }
-        print("Start location", startLocation)
-        print("End location", endLocation)
-        showAnnotation(searchResult)
-        
-        startNavigationBar.textField.text = "Current location"
-        endNavigationBar.textField.text = endLocation?.name
+        print("Start location", startLocation ?? "nil")
+        print("End location", endLocation ?? "nil")
         
         startNavigationBar.isHidden = false
         endNavigationBar.isHidden = false
@@ -395,6 +397,15 @@ extension SimpleUISearchViewController: SearchControllerDelegate {
     func userFavoriteSelected(_ userFavorite: FavoriteRecord) {
         showAnnotation(userFavorite)
     }
+    
+    func searchCancelled() {
+        startNavigationBar.isHidden = false
+        endNavigationBar.isHidden = false
+        
+        if let endLocation = endLocation {
+            startButton.isHidden = false
+        }
+    }
 }
 
 extension PointAnnotation {
@@ -415,12 +426,4 @@ extension CLLocation {
 
 extension CLLocationCoordinate2D {
     static let defaultLocation = CLLocationCoordinate2D(latitude: 50.878309, longitude: 4.698938)
-}
-
-extension MapboxSearchController {
-    func cancelSearch() {
-        super.cancelSearch()
-        
-        startNavigationBar.isHidden = false
-    }
 }
