@@ -7,7 +7,7 @@ class NavigationBar: UIView {
         textField.contentMode = .scaleToFill
         textField.contentHorizontalAlignment = .left
         textField.contentVerticalAlignment = .center
-        textField.placeholder = "Where to?"
+        textField.placeholder = "None"
         textField.textAlignment = .left
         textField.minimumFontSize = 17
         textField.clearButtonMode = .always

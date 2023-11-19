@@ -9,11 +9,11 @@ class SimpleUISearchViewController: UIViewController {
     lazy var annotationsManager = mapView.annotations.makePointAnnotationManager()
     
     lazy var searchController: MapboxSearchController = {
-//        let pointLocationProvider = PointLocationProvider(coordinate: .sanFrancisco)
-        let defaultLocationProvider = DefaultLocationProvider(locationManager: .init())
+        let pointLocationProvider = PointLocationProvider(coordinate: .sanFrancisco)
+//        let defaultLocationProvider = DefaultLocationProvider(locationManager: .init())
         // can define category slot (horizontal) and category lists (vertical)
         // let categoryDataProvider = ConstantCategoryDataProvider()
-        var configuration = Configuration(locationProvider: defaultLocationProvider) // , hideCategorySlots: true)
+        var configuration = Configuration(locationProvider: pointLocationProvider) // , hideCategorySlots: true)
         
         return MapboxSearchController(configuration: configuration)
     }()
@@ -42,7 +42,9 @@ class SimpleUISearchViewController: UIViewController {
         mapView.camera.fly(to: cameraOptions, duration: 1, completion: nil)
         
         startNavigationBar.label.text = "Start"
+        startNavigationBar.textField.placeholder = "Where from?"
         endNavigationBar.label.text = "End"
+        endNavigationBar.textField.placeholder = "Where to?"
                 
         view.addSubview(startNavigationBar)
         view.addSubview(endNavigationBar)
@@ -136,6 +138,12 @@ extension SimpleUISearchViewController: SearchControllerDelegate {
         print("Start location", startLocation)
         print("End location", endLocation)
         showAnnotation(searchResult)
+        
+        startNavigationBar.textField.text = "Current location"
+        endNavigationBar.textField.text = endLocation?.name
+        
+        startNavigationBar.isHidden = false
+        endNavigationBar.isHidden = false
 
     }
     
@@ -157,5 +165,5 @@ extension PointAnnotation {
 }
 
 extension CLLocationCoordinate2D {
-    static let sanFrancisco = CLLocationCoordinate2D(latitude: 37.7911551, longitude: -122.3966103)
+    static let sanFrancisco = CLLocationCoordinate2D(latitude: 50.878309, longitude: 4.698938)
 }
