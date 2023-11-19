@@ -1,20 +1,14 @@
 import UIKit
 
-class NavigationBar: UIView {
+class NavigationBar: UIButton {
     
-    var textField: UITextField = {
-        let textField = UITextField()
+    var textField: UILabel = {
+        let textField = UILabel()
         textField.contentMode = .scaleToFill
-        textField.contentHorizontalAlignment = .left
-        textField.contentVerticalAlignment = .center
-        textField.placeholder = "None"
         textField.textAlignment = .left
-        textField.minimumFontSize = 17
-        textField.clearButtonMode = .always
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.textColor = UIColor(named: "mapbox text")
-        textField.font = .systemFont(ofSize: 15)
-        textField.backgroundColor = UIColor(named: "mapbox search background")
+        textField.font = Fonts.default(style: .body, traits: nil) // .systemFont(ofSize: 15)
         return textField
     }()
     
