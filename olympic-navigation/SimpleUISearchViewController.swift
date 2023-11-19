@@ -14,8 +14,7 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
     var endLocation: SearchResult?
     var setStartLocation: Bool = false
     
-    var startNavigationBar = NavigationBar()
-    var endNavigationBar = NavigationBar()
+    var navigationBar = NavigationBar()
     
     var navigationMapView: NavigationMapView! {
         didSet {
@@ -69,7 +68,21 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
         navigationMapView.showcase(routes)
     }
     
-    var startButton: UIButton!
+    var startButton: UIButton = {
+        let startButton = UIButton()
+        startButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        startButton.clipsToBounds = true
+//        startButton.layer.masksToBounds = true
+        startButton.layer.cornerRadius = 5
+        
+        startButton.backgroundColor = UIColor(named: "mapbox blue")
+        startButton.setTitle("Start Navigation", for: .normal)
+        startButton.setTitleColor(UIColor(named: "mapbox background"), for: .normal)
+        
+        startButton.layer.masksToBounds = true
+        return startButton
+    }()
         
     var searchController: MapboxSearchController = {
 //        let pointLocationProvider = PointLocationProvider(coordinate: .defaultLocation)
@@ -102,35 +115,27 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
                 
         var panelController = MapboxPanelController(rootViewController: searchController)
         
-        startButton = UIButton()
-        startButton.setTitle("Start Navigation", for: .normal)
-        startButton.translatesAutoresizingMaskIntoConstraints = false
-        startButton.backgroundColor = .blue
-        startButton.configuration?.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 20, bottom: 10, trailing: 20)
         startButton.addTarget(self, action: #selector(tappedButton(sender:)), for: .touchUpInside)
-        startButton.isHidden = false
+        startButton.isHidden = true
         view.addSubview(startButton)
         
         startButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20).isActive = true
+        startButton.heightAnchor.constraint(equalToConstant: 50).isActive = true
         startButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
+        startButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 36).isActive = true
+        startButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -36).isActive = true
         view.setNeedsLayout()
         
         // Fly camera somewhere?
 //        let cameraOptions = CameraOptions(center: .defaultLocation, zoom: 15)
 //        navigationMapView.mapView.camera.fly(to: cameraOptions, duration: 1, completion: nil)
         
-        startNavigationBar.label.text = "Start"
-        startNavigationBar.textField.text = "Where from?"
-        startNavigationBar.addTarget(self, action: #selector(tappedStartNavigationBar(sender:)), for: .touchUpInside)
-        endNavigationBar.label.text = "End"
-        endNavigationBar.textField.text = "Where to?"
-        endNavigationBar.addTarget(self, action: #selector(tappedEndNavigationBar(sender:)), for: .touchUpInside)
+        navigationBar.startButton.addTarget(self, action: #selector(tappedStartNavigationBar(sender:)), for: .touchUpInside)
+        navigationBar.endButton.addTarget(self, action: #selector(tappedEndNavigationBar(sender:)), for: .touchUpInside)
                 
-        view.addSubview(startNavigationBar)
-        view.addSubview(endNavigationBar)
+        view.addSubview(navigationBar)
         addNavigationBarConstraints()
-        startNavigationBar.isHidden = true
-        endNavigationBar.isHidden = true
+        navigationBar.isHidden = true
         
         searchController.delegate = self
         addChild(panelController)
@@ -149,26 +154,20 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
     private func addNavigationBarConstraints() {
         var constraints = [NSLayoutConstraint]()
         
-        let navigation_bar_height: CGFloat = CGFloat(40)
+        let navigation_bar_height: CGFloat = CGFloat(132)
         
         // Add
-        constraints.append(startNavigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor))
-        constraints.append(startNavigationBar.heightAnchor.constraint(equalToConstant: navigation_bar_height))
-        constraints.append(startNavigationBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: CGFloat(20)))
-        constraints.append(startNavigationBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: CGFloat(-20)))
-        
-        constraints.append(endNavigationBar.topAnchor.constraint(equalTo: startNavigationBar.bottomAnchor, constant: CGFloat(8)))
-        constraints.append(endNavigationBar.heightAnchor.constraint(equalToConstant: navigation_bar_height))
-        constraints.append(endNavigationBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: CGFloat(20)))
-        constraints.append(endNavigationBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: CGFloat(-20)))
-        
+        constraints.append(navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor))
+        constraints.append(navigationBar.heightAnchor.constraint(equalToConstant: navigation_bar_height))
+        constraints.append(navigationBar.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: CGFloat(16)))
+        constraints.append(navigationBar.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: CGFloat(-16)))
+         
         // Activate (apply)
         NSLayoutConstraint.activate(constraints)
     }
     
     @objc func tappedStartNavigationBar(sender: UIButton) {
-        startNavigationBar.isHidden = true
-        endNavigationBar.isHidden = true
+        navigationBar.isHidden = true
         startButton.isHidden = true
         
         setStartLocation = true
@@ -177,8 +176,7 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
     }
     
     @objc func tappedEndNavigationBar(sender: UIButton) {
-        startNavigationBar.isHidden = true
-        endNavigationBar.isHidden = true
+        navigationBar.isHidden = true
         startButton.isHidden = true
         
         setStartLocation = false
@@ -249,7 +247,7 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
                 guard let self = self else { return }
 
                 self.routeResponse = response
-                self.startButton?.isHidden = false
+                self.startButton.isHidden = false
                 if let routes = self.routes,
                    let currentRoute = self.currentRoute {
                     self.navigationMapView.show(routes)
@@ -308,7 +306,7 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
             var annotation = PointAnnotation(coordinate: searchResult.coordinate)
             annotation.textOffset = [0, -2]
             annotation.textColor = StyleColor(.red)
-            annotation.image = .init(image: UIImage(named: "red_pin")!, name: "red_pin")
+            annotation.image = .init(image: UIImage(named: "green_pin")!, name: "green_pin")
             return annotation
         }
         
@@ -356,23 +354,21 @@ extension SimpleUISearchViewController: SearchControllerDelegate {
         print("Entering searchResultSelected --------------")
         if setStartLocation {
             startLocation = searchResult
-            startNavigationBar.textField.text = startLocation?.name
+            navigationBar.startField.text = startLocation?.name
             setStartLocation = false
+            showAnnotation(searchResult)
         } else {
             endLocation = searchResult
-            endNavigationBar.textField.text = endLocation?.name
-            if startNavigationBar.textField.text == "Where from?" {
-                startNavigationBar.textField.text = "Current location"
+            navigationBar.endField.text = endLocation?.name
+            if navigationBar.startField.text == "Where from?" {
+                navigationBar.startField.text = "Current location"
             }
             setStartLocation = true
-            
-            showAnnotation(searchResult)
         }
         print("Start location", startLocation ?? "nil")
         print("End location", endLocation ?? "nil")
         
-        startNavigationBar.isHidden = false
-        endNavigationBar.isHidden = false
+        navigationBar.isHidden = false
         
         if let endLocation = endLocation {
             // End location given, take start location or current location.
@@ -399,10 +395,9 @@ extension SimpleUISearchViewController: SearchControllerDelegate {
     }
     
     func searchCancelled() {
-        startNavigationBar.isHidden = false
-        endNavigationBar.isHidden = false
+        navigationBar.isHidden = false
         
-        if let endLocation = endLocation {
+        if endLocation != nil {
             startButton.isHidden = false
         }
     }
