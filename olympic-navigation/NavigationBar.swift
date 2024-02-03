@@ -54,10 +54,10 @@ class NavigationBar: UIView {
     
     private func setupView() {
         translatesAutoresizingMaskIntoConstraints = false
-        backgroundColor = UIColor(named: "mapbox background")
+//        backgroundColor = UIColor(named: "mapbox background")
         
-        startButton.backgroundColor = UIColor(named: "mapbox searchbar background")
-        endButton.backgroundColor = UIColor(named: "mapbox searchbar background")
+        startButton.backgroundColor = UIColor(.white)
+        endButton.backgroundColor = UIColor(.white)
         
         startLabel = label(text: "Start")
         startField = field(text: "Where from?")

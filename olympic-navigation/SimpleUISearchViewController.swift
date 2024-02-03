@@ -23,7 +23,7 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
             }
             
             navigationMapView.translatesAutoresizingMaskIntoConstraints = false
-            
+                        
             view.insertSubview(navigationMapView, at: 0)
             
             NSLayoutConstraint.activate([
@@ -88,8 +88,8 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
 //        let pointLocationProvider = PointLocationProvider(coordinate: .defaultLocation)
         let defaultLocationProvider = DefaultLocationProvider(locationManager: .init())
         // can define category slot (horizontal) and category lists (vertical)
-        // let categoryDataProvider = ConstantCategoryDataProvider()
-        var configuration = Configuration(locationProvider: defaultLocationProvider) //, hideCategorySlots: true)
+        let categoryDataProvider = ConstantCategoryDataProvider(slots: [SearchCategory.olympics, SearchCategory.bar], list: [SearchCategory.hotel, SearchCategory.grocery])
+        var configuration = Configuration(categoryDataProvider: categoryDataProvider, locationProvider: defaultLocationProvider) // , hideCategorySlots: true)
         
         return MapboxSearchController(configuration: configuration)
     }()
@@ -108,10 +108,10 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
         navigationViewportDataSource.options.followingCameraOptions.zoomUpdatesAllowed = false
         navigationViewportDataSource.followingMobileCamera.zoom = 13.0
         navigationMapView.navigationCamera.viewportDataSource = navigationViewportDataSource
-        
+                
         // TODO: handle longpress
-//        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
-//        navigationMapView.addGestureRecognizer(gesture)
+        let gesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPress(_:)))
+        navigationMapView.addGestureRecognizer(gesture)
                 
         var panelController = MapboxPanelController(rootViewController: searchController)
         
@@ -230,11 +230,28 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
         }
     }
     
+    @objc func handleLongPress(_ gesture: UILongPressGestureRecognizer) {
+        guard gesture.state == .ended else { return }
+        let destination = navigationMapView.mapView.mapboxMap.coordinate(for: gesture.location(in: navigationMapView.mapView))
+        
+        guard let userLocation = navigationMapView.mapView.location.latestLocation else { return }
+        
+        let userLocationCoordinates = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude,
+                                  longitude: userLocation.coordinate.longitude)
+        
+        navigationBar.startField.text = "Current location"
+        navigationBar.endField.text = "Dropped pin"
+        
+        navigationBar.isHidden = false
+        searchController.panelController?.setState(.hidden, animated: true)
+        
+        requestRoute(origin: userLocationCoordinates, destination: destination)
+    }
+    
     // TODO: should take origin and destination
     func requestRoute(origin: CLLocationCoordinate2D, destination: CLLocationCoordinate2D) {
         print("Requesting route for \(origin) to \(destination)")
         let originWaypoint = Waypoint(coordinate: origin)
-        
         let destinationWaypoint = Waypoint(coordinate: destination)
         
         let navigationRouteOptions = NavigationRouteOptions(waypoints: [originWaypoint, destinationWaypoint])
@@ -250,7 +267,10 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
                 self.startButton.isHidden = false
                 if let routes = self.routes,
                    let currentRoute = self.currentRoute {
+                    let cameraOptions = CameraOptions(padding: UIEdgeInsets(top: 220, left: 10, bottom: 170, right: 10))
                     self.navigationMapView.show(routes)
+                    self.navigationMapView.showcase(routes, routesPresentationStyle: .all(shouldFit: true, cameraOptions: cameraOptions))
+                    self.navigationMapView.showRouteDurations(along: routes)
                     self.navigationMapView.showWaypoints(on: currentRoute)
                 }
             }
