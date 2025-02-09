@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>ITSAppUsesNonExemptEncryption</key>
+	<false/>
 	<key>MBXAccessToken</key>
 	<string>pk.eyJ1IjoibWF0dGlqc2RwIiwiYSI6ImNsb29zZXd6MTAydjkyam82ajgzeXduNzYifQ.LiF6MLeeUznAzcNekTcDSQ</string>
 	<key>NSBonjourServices</key>
@@ -13,5 +15,12 @@
 		<string>audio</string>
 		<string>location</string>
 	</array>
+	<key>UILaunchScreen</key>
+	<dict>
+		<key>UIImageName</key>
+		<string>LaunchImage</string>
+		<key>UIImageRespectsSafeAreaInsets</key>
+		<true/>
+	</dict>
 </dict>
 </plist>

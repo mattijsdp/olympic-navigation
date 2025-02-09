@@ -16,6 +16,8 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
     
     var navigationBar = NavigationBar()
     
+    var loginView = LoginView()
+    
     var navigationMapView: NavigationMapView! {
         didSet {
             if oldValue != nil {
@@ -83,6 +85,13 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
         startButton.layer.masksToBounds = true
         return startButton
     }()
+    
+//    var backButton: UIButton = {
+//        let backButton = UIButton()
+//        backButton.translatesAutoresizingMaskIntoConstraints = false
+//        
+//        
+//    }
         
     var searchController: MapboxSearchController = {
 //        let pointLocationProvider = PointLocationProvider(coordinate: .defaultLocation)
@@ -103,6 +112,7 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
         navigationMapView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         navigationMapView.delegate = self
         navigationMapView.userLocationStyle = .puck2D()
+        navigationMapView.isHidden = true
         
         let navigationViewportDataSource = NavigationViewportDataSource(navigationMapView.mapView, viewportDataSourceType: .raw)
         navigationViewportDataSource.options.followingCameraOptions.zoomUpdatesAllowed = false
@@ -139,7 +149,31 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
         
         searchController.delegate = self
         addChild(panelController)
+        
+        setupLoginView()
                 
+    }
+    
+    func setupLoginView() {
+        view.addSubview(loginView)
+        
+        loginView.loginAction = loginPressed
+        
+        var constraints = [NSLayoutConstraint]()
+        
+        constraints.append(loginView.topAnchor.constraint(equalTo: view.topAnchor))
+        constraints.append(loginView.heightAnchor.constraint(equalTo: view.heightAnchor))
+        constraints.append(loginView.leadingAnchor.constraint(equalTo: view.leadingAnchor))
+        constraints.append(loginView.trailingAnchor.constraint(equalTo: view.trailingAnchor))
+        
+        // Activate (apply)
+        NSLayoutConstraint.activate(constraints)
+    }
+    
+    func loginPressed() {
+        print("Login button tapped")
+        loginView.isHidden = true
+        navigationMapView.isHidden = false
     }
     
     // Override layout lifecycle callback to be able to style the start button.
@@ -365,9 +399,75 @@ class SimpleUISearchViewController: UIViewController, NavigationMapViewDelegate,
     }
 }
 
+struct OlympicPOI: SearchResult {
+    var id = "0"
+    
+    var name = "Demo0"
+    
+    var iconName: String?
+    
+    var serverIndex: Int?
+    
+    var accuracy: MapboxSearch.SearchResultAccuracy?
+    
+    var type = MapboxSearch.SearchResultType.POI
+    
+    var matchingName: String?
+    
+    var address: MapboxSearch.Address?
+    
+    var descriptionText: String?
+    
+    var categories: [String]?
+    
+    var routablePoints: [MapboxSearch.RoutablePoint]?
+    
+    var searchRequest = MapboxSearch.SearchRequestOptions(query: "olympics", proximity: CLLocationCoordinate2D(latitude: 48, longitude: 2.3))
+    
+    var estimatedTime: Measurement<UnitDuration>?
+    
+    var metadata: MapboxSearch.SearchResultMetadata?
+    
+    var coordinate = CLLocationCoordinate2D(latitude: 48.854579, longitude: 2.339148)
+}
+
 extension SimpleUISearchViewController: SearchControllerDelegate {
     func categorySearchResultsReceived(category: SearchCategory, results: [SearchResult]) {
-        showAnnotations(results: results)
+        if category.name == "Olympics" {
+            var grandPalais0 = OlympicPOI()
+            var versailles0 = OlympicPOI()
+            var stadePierreMauroy0 = OlympicPOI()
+            var centreAquatique0 = OlympicPOI()
+            var centreAquatique1 = OlympicPOI()
+            var versailles1 = OlympicPOI()
+            var cDGT2A = OlympicPOI()
+            var cDGT2BD = OlympicPOI()
+            var stadePierreMauroy1 = OlympicPOI()
+            var grandPalais1 = OlympicPOI()
+            var mPC0 = OlympicPOI()
+            var mPC1 = OlympicPOI()
+            grandPalais0.coordinate = CLLocationCoordinate2D(latitude: 48.86547, longitude: 2.31040)
+            versailles0.coordinate = CLLocationCoordinate2D(latitude: 48.81685, longitude: 2.08204)
+            stadePierreMauroy0.coordinate = CLLocationCoordinate2D(latitude: 50.61356, longitude: 3.13273)
+            centreAquatique0.coordinate = CLLocationCoordinate2D(latitude: 48.92295, longitude: 2.35455)
+            centreAquatique1.coordinate = CLLocationCoordinate2D(latitude: 48.92297, longitude: 2.35470)
+            versailles1.coordinate = CLLocationCoordinate2D(latitude: 48.81679, longitude: 2.08192)
+            cDGT2A.coordinate = CLLocationCoordinate2D(latitude: 49.00311, longitude: 2.56254)
+            cDGT2BD.coordinate = CLLocationCoordinate2D(latitude: 49.00399, longitude: 2.56256)
+            stadePierreMauroy1.coordinate = CLLocationCoordinate2D(latitude: 50.61360, longitude: 3.13294)
+            grandPalais1.coordinate = CLLocationCoordinate2D(latitude: 48.86571, longitude: 2.31038)
+            mPC0.coordinate = CLLocationCoordinate2D(latitude: 48.92318, longitude: 2.35169)
+            mPC1.coordinate = CLLocationCoordinate2D(latitude: 48.92307, longitude: 2.35184)
+            let results = [grandPalais0, versailles0, centreAquatique0, centreAquatique1, versailles1, cDGT2A, cDGT2BD, grandPalais1, mPC0, mPC1]
+            showAnnotations(results: results)
+            print("goes here")
+            print(results)
+        }
+        else {
+            print(category)
+            print(results)
+            showAnnotations(results: results)
+        }
     }
     
     func searchResultSelected(_ searchResult: SearchResult) {

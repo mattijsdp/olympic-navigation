@@ -16,12 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
-//        let simpleUISearchViewController = SimpleUISearchViewController()
-//        let navigationController = UINavigationController(rootViewController: simpleUISearchViewController)
-        
         window?.rootViewController = SimpleUISearchViewController()
-//        window?.rootViewController = AdvancedViewController()
-//        window?.rootViewController = ExampleNavigationViewController()
         window?.makeKeyAndVisible()
         
         Atlantis.start()
